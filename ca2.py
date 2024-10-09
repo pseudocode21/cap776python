@@ -18,7 +18,6 @@ def register():
         password = input("Enter your password: ").encode('utf-8')
         if len(password) >= 8:
             if re.fullmatch(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).{8,}$', password.decode('utf-8')):
-                salt = bcrypt.gensalt(rounds=12)
                 hash_pass = bcrypt.hashpw(password, salt)
                 break
             else:
